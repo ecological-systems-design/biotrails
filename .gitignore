@@ -11,6 +11,8 @@
 /*.Rcheck/
 # RStudio files
 .Rproj.user/
+*.Rproj
+.gitignore
 # produced vignettes
 vignettes/*.html
 vignettes/*.pdf
@@ -26,3 +28,5 @@ vignettes/*.pdf
 rsconnect/
 .Rproj.user
 README.html
+# output folder
+output/

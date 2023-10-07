@@ -1,0 +1,126 @@
+comm_code,item_code,item,exiobase_code,exiobase_item
+c001,2805,Rice (Milled Equivalent),p01.a,Paddy rice
+c002,2511,Wheat and products,p01.b,Wheat
+c003,2513,Barley and products,p01.c,Cereal grains nec
+c004,2514,Maize and products,p01.c,Cereal grains nec
+c005,2515,Rye and products,p01.c,Cereal grains nec
+c006,2516,Oats,p01.c,Cereal grains nec
+c007,2517,Millet and products,p01.c,Cereal grains nec
+c008,2518,Sorghum and products,p01.c,Cereal grains nec
+c009,2520,"Cereals, Other",p01.c,Cereal grains nec
+c010,2531,Potatoes and products,p01.d,"Vegetables, fruit, nuts"
+c011,2532,Cassava and products,p01.d,"Vegetables, fruit, nuts"
+c012,2533,Sweet potatoes,p01.d,"Vegetables, fruit, nuts"
+c013,2534,"Roots, Other",p01.d,"Vegetables, fruit, nuts"
+c014,2535,Yams,p01.d,"Vegetables, fruit, nuts"
+c015,2536,Sugar cane,p01.f,"Sugar cane, sugar beet"
+c016,2537,Sugar beet,p01.f,"Sugar cane, sugar beet"
+c017,2546,Beans,p01.d,"Vegetables, fruit, nuts"
+c018,2547,Peas,p01.d,"Vegetables, fruit, nuts"
+c019,2549,"Pulses, Other and products",p01.d,"Vegetables, fruit, nuts"
+c020,2551,Nuts and products,p01.d,"Vegetables, fruit, nuts"
+c021,2555,Soyabeans,p01.e,Oil seeds
+c022,2556,Groundnuts (Shelled Eq),p01.e,Oil seeds
+c023,2557,Sunflower seed,p01.e,Oil seeds
+c024,2558,Rape and Mustardseed,p01.e,Oil seeds
+c025,328,Seed cotton,p01.g,Plant-based fibers
+c026,2560,Coconuts - Incl Copra,p01.d,"Vegetables, fruit, nuts"
+c027,2561,Sesame seed,p01.e,Oil seeds
+c028,254,"Oil, palm fruit",p01.e,Oil seeds
+c029,2563,Olives (including preserved),p01.d,"Vegetables, fruit, nuts"
+c030,2570,"Oilcrops, Other",p01.e,Oil seeds
+c031,2601,Tomatoes and products,p01.d,"Vegetables, fruit, nuts"
+c032,2602,Onions,p01.d,"Vegetables, fruit, nuts"
+c033,2605,"Vegetables, Other",p01.d,"Vegetables, fruit, nuts"
+c034,2611,"Oranges, Mandarines",p01.d,"Vegetables, fruit, nuts"
+c035,2612,"Lemons, Limes and products",p01.d,"Vegetables, fruit, nuts"
+c036,2613,Grapefruit and products,p01.d,"Vegetables, fruit, nuts"
+c037,2614,"Citrus, Other",p01.d,"Vegetables, fruit, nuts"
+c038,2615,Bananas,p01.d,"Vegetables, fruit, nuts"
+c039,2616,Plantains,p01.d,"Vegetables, fruit, nuts"
+c040,2617,Apples and products,p01.d,"Vegetables, fruit, nuts"
+c041,2618,Pineapples and products,p01.d,"Vegetables, fruit, nuts"
+c042,2619,Dates,p01.d,"Vegetables, fruit, nuts"
+c043,2620,Grapes and products (excl wine),p01.d,"Vegetables, fruit, nuts"
+c044,2625,"Fruits, Other",p01.d,"Vegetables, fruit, nuts"
+c045,2630,Coffee and products,p01.h,Crops nec
+c046,2633,Cocoa Beans and products,p01.h,Crops nec
+c047,2635,Tea (including mate),p01.h,Crops nec
+c048,677,Hops,p01.h,Crops nec
+c049,2640,Pepper,p01.h,Crops nec
+c050,2641,Pimento,p01.h,Crops nec
+c051,2642,Cloves,p01.h,Crops nec
+c052,2645,"Spices, Other",p01.h,Crops nec
+c053,2662,Jute,p01.g,Plant-based fibers
+c054,2663,Jute-Like Fibres,p01.g,Plant-based fibers
+c055,2664,"Soft-Fibres, Other",p01.g,Plant-based fibers
+c056,2665,Sisal,p01.g,Plant-based fibers
+c057,2666,Abaca,p01.g,Plant-based fibers
+c058,2667,"Hard Fibres, Other",p01.g,Plant-based fibers
+c059,2671,Tobacco,p01.h,Crops nec
+c060,2672,Rubber,p01.h,Crops nec
+c061,2000,Fodder crops,fodder,Fodder crops
+c062,2001,Grazing,grazing,Grazing
+c063,2559,Cottonseed,p01.e,Oil seeds
+c064,2562,Palm kernels,p01.e,Oil seeds
+c065,2541,Sugar non-centrifugal,p15.h,Sugar
+c066,2544,Molasses,p15.h,Sugar
+c067,2818,"Sugar, Refined Equiv",p15.h,Sugar
+c068,2543,"Sweeteners, Other",p01.f,"Sugar cane, sugar beet"
+c069,2571,Soyabean Oil,p15.e,products of Vegetable oils and fats
+c070,2572,Groundnut Oil,p15.e,products of Vegetable oils and fats
+c071,2573,Sunflowerseed Oil,p15.e,products of Vegetable oils and fats
+c072,2574,Rape and Mustard Oil,p15.e,products of Vegetable oils and fats
+c073,2575,Cottonseed Oil,p15.e,products of Vegetable oils and fats
+c074,2576,Palmkernel Oil,p15.e,products of Vegetable oils and fats
+c075,2577,Palm Oil,p15.e,products of Vegetable oils and fats
+c076,2578,Coconut Oil,p15.e,products of Vegetable oils and fats
+c077,2579,Sesameseed Oil,p15.e,products of Vegetable oils and fats
+c078,2580,Olive Oil,p15.e,products of Vegetable oils and fats
+c079,2581,Ricebran Oil,p15.e,products of Vegetable oils and fats
+c080,2582,Maize Germ Oil,p15.e,products of Vegetable oils and fats
+c081,2586,"Oilcrops Oil, Other",p15.e,products of Vegetable oils and fats
+c082,2590,Soyabean Cake,p15.e,products of Vegetable oils and fats
+c083,2591,Groundnut Cake,p15.e,products of Vegetable oils and fats
+c084,2592,Sunflowerseed Cake,p15.e,products of Vegetable oils and fats
+c085,2593,Rape and Mustard Cake,p15.e,products of Vegetable oils and fats
+c086,2594,Cottonseed Cake,p15.e,products of Vegetable oils and fats
+c087,2595,Palmkernel Cake,p15.e,products of Vegetable oils and fats
+c088,2596,Copra Cake,p15.e,products of Vegetable oils and fats
+c089,2597,Sesameseed Cake,p15.e,products of Vegetable oils and fats
+c090,2598,"Oilseed Cakes, Other",p15.e,products of Vegetable oils and fats
+c091,2655,Wine,p15.j,Beverages
+c092,2656,Beer,p15.j,Beverages
+c093,2657,"Beverages, Fermented",p15.j,Beverages
+c094,2658,"Beverages, Alcoholic",p15.j,Beverages
+c095,2659,"Alcohol, Non-Food",,
+c096,2661,Cotton lint,,
+c097,866,Cattle,p01.i,Cattle
+c098,946,Buffaloes,p01.i,Cattle
+c099,976,Sheep,p01.l,Meat animals nec
+c100,1016,Goats,p01.l,Meat animals nec
+c101,1034,Pigs,p01.j,Pigs
+c102,2029,Poultry Birds,p01.k,Poultry
+c103,1096,Horses,p01.l,Meat animals nec
+c104,1107,Asses,p01.l,Meat animals nec
+c105,1110,Mules,p01.l,Meat animals nec
+c106,1126,Camels,p01.l,Meat animals nec
+c107,1157,"Camelids, other",p01.l,Meat animals nec
+c108,1140,Rabbits and hares,p01.l,Meat animals nec
+c109,1150,"Rodents, other",p01.l,Meat animals nec
+c110,2848,Milk - Excluding Butter,p01.n,Raw milk
+c111,2740,"Butter, Ghee",p01.n,Raw milk
+c112,2744,Eggs,p15.c,Products of meat poultry
+c113,2746,Wool (Clean Eq.),p01.o,"Wool, silk-worm cocoons"
+c114,2731,Bovine Meat,p15.a,Products of meat cattle
+c115,2732,Mutton & Goat Meat,p15.d,Meat products nec
+c116,2733,Pigmeat,p15.b,Products of meat pigs
+c117,2734,Poultry Meat,p15.c,Products of meat poultry
+c118,2735,"Meat, Other",p15.d,Meat products nec
+c119,2736,"Offals, Edible",p15.d,Meat products nec
+c120,2737,"Fats, Animals, Raw",p15.d,Meat products nec
+c121,2748,Hides and skins,p01.m,Animal products nec
+c122,2749,Meat Meal,p15.d,Meat products nec
+c123,2745,Honey,p01.m,Animal products nec
+c124,2747,Silk,p01.o,"Wool, silk-worm cocoons"
+c125,2960,"Fish, Seafood",p05,"Fish and other fishing products; services incidental of fishing"
