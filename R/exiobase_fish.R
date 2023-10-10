@@ -19,6 +19,7 @@ load(file="/mnt/nfs_fineprint/tmp/exiobase/Y.codes.RData")
 load(file="/mnt/nfs_fineprint/tmp/exiobase/Q.codes.RData")
 load(file="/mnt/nfs_fineprint/tmp/exiobase/pxp/IO.codes.RData")
 conc_reg <- fread("inst/reg_fabio_exio.csv")
+IO.codes$Country.Name <- conc_reg$exiobase_area[match(IO.codes$Country.Code, conc_reg$exiobase_code)]
 
 # make settings --------------------------
 year <- 2016
@@ -49,6 +50,16 @@ data_z <- data.table(IO.codes,
                      Z = round(as.numeric(Z[IO.codes$Product.Name==product & IO.codes$Country.Code==country,])))
 data_y <- data.table(Y.codes, Y = round(Y[IO.codes$Product.Name==product & IO.codes$Country.Code==country,]))
 data_e <- data.table(Q.codes, E = round(E[,IO.codes$Product.Name==product & IO.codes$Country.Code==country]))
+data_in <- data.table(IO.codes, 
+                      value = round(as.numeric(Z[, IO.codes$Product.Name==product & IO.codes$Country.Code==country])))
+data_in_country <- data_in %>% 
+  group_by(Country.Code, Country.Name) %>% 
+  summarise(value = sum(value) / 161430)
+fwrite(data_in_country, "output/fish_MEURperT_input_countries.csv")
+data_in_product <- data_in %>% 
+  group_by(Sector.Group, Product.Name) %>% 
+  summarise(value = sum(value) / 161430)
+fwrite(data_in_product, "output/fish_MEURperT_input_products.csv")
 
 
 # ---------------- footprints of fish production --------------------------
@@ -153,11 +164,11 @@ results$area_target <- conc_reg$exiobase_area[match(results$country_target, conc
 fish_country <- results %>%
   group_by(iso_target, area_target) %>%
   summarise(value = sum(value))
-fwrite(fish_country, "output/fish_MEUR_countries.csv")
+fwrite(fish_country, "output/fish_MEUR_consumption_countries.csv")
 fish_product <- results %>%
   group_by(item_final) %>%
   summarise(value = sum(value))
-fwrite(fish_product, "output/fish_MEUR_products.csv")
+fwrite(fish_product, "output/fish_MEUR_consumption_products.csv")
 
 
 # ---------------- Create Visualizations --------------------------

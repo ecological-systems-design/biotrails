@@ -19,6 +19,7 @@ load(file="/mnt/nfs_fineprint/tmp/exiobase/Y.codes.RData")
 load(file="/mnt/nfs_fineprint/tmp/exiobase/Q.codes.RData")
 load(file="/mnt/nfs_fineprint/tmp/exiobase/pxp/IO.codes.RData")
 conc_reg <- fread("inst/reg_fabio_exio.csv")
+IO.codes$Country.Name <- conc_reg$exiobase_area[match(IO.codes$Country.Code, conc_reg$exiobase_code)]
 
 # make settings --------------------------
 year <- 2016
@@ -52,6 +53,16 @@ data_e <- data.table(Q.codes, E = round(E[,IO.codes$Product.Name==product & IO.c
 data_gold <- data.table(unique(cbind(IO.codes$Country.Code, IO.codes$Region.Code)),  
                         kt = round(E[Q.codes$Stressor=="Domestic Extraction Used - Metal Ores - Gold ores", 
                                      IO.codes$Product.Name==product]))
+data_in <- data.table(IO.codes, 
+                      value = round(as.numeric(Z[, IO.codes$Product.Name==product & IO.codes$Country.Code==country])))
+data_in_country <- data_in %>% 
+  group_by(Country.Code, Country.Name) %>% 
+  summarise(value = sum(value) / (572.6+117.1) * 1000000)
+fwrite(data_in_country, "output/gold_EURperT_input_countries.csv")
+data_in_product <- data_in %>% 
+  group_by(Sector.Group, Product.Name) %>% 
+  summarise(value = sum(value) / (572.6+117.1) * 1000000)
+fwrite(data_in_product, "output/gold_EURperT_input_products.csv")
 
 
 # ---------------- footprints of gold production --------------------------
