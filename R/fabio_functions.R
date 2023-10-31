@@ -60,7 +60,6 @@ footprint <- function(source = "PER", product = "Cocoa and products", consumptio
   FP <- L[index$iso3c == source & index$item == product, ] %*% Y_target
   FP <- as(FP, "dgTMatrix")
   results <- data.table(origin = rownames(FP)[FP@i + 1], target = colnames(FP)[FP@j + 1], value = FP@x)
-  results <- data.table(origin = rownames(FP)[FP@i + 1], target = colnames(FP)[FP@j + 1], value = FP@x)
   results[,`:=`(iso_origin = source,
                 item_origin = product,
                 consumer = target,
