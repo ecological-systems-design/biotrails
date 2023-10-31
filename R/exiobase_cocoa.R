@@ -35,15 +35,32 @@ load(file=paste0("/mnt/nfs_fineprint/tmp/exiobase/pxp/",year,"_E.RData"))
 load(file=paste0("/mnt/nfs_fineprint/tmp/exiobase/pxp/",year,"_F_hh.RData"))
 E_fabio <- readRDS(file=paste0("/mnt/nfs_fineprint/tmp/fabio/v1.2/E.rds"))
 E_fabio <- E_fabio[[as.character(year)]]
+E_biodiv <- readRDS(file="/mnt/nfs_fineprint/tmp/fabio/v1.2/E_biodiv.rds")
+E_biodiv <- E_biodiv[[as.character(year)]]
+E_ghg <- readRDS(file="/mnt/nfs_fineprint/tmp/fabio/v1.2/E_gwp_value.rds")
+E_luh <- readRDS(file="/mnt/nfs_fineprint/tmp/fabio/v1.2/E_luh_value.rds")
+items_ghg <- read.csv("/mnt/nfs_fineprint/tmp/fabio/v1.2/gwp_names.csv")
+items_luh <- read.csv("/mnt/nfs_fineprint/tmp/fabio/v1.2/luh_names.csv")
+E_ghg <- E_ghg[[as.character(year)]]
+E_luh <- E_luh[[as.character(year)]]
+
+# convert potential species loss to E/MSY ------------------------------------
+items_biodiv <- read.csv("/mnt/nfs_fineprint/tmp/fabio/v1.2/biodiv_codes.csv")
+E_biodiv <- E_biodiv[, paste0(items_biodiv$species,"_", items_biodiv$land), with = FALSE]
+E_biodiv <- E_biodiv / 100
 
 # harmonize environmental data -------------------------------------------
 conc_reg <- fread("inst/reg_fabio_exio.csv")
 conc_items <- fread("inst/items_fabio_exio.csv")
-E_fabio <- merge(E_fabio, conc_reg[, .(area_code, Country.Code = exiobase_code)], 
+E_fabio[, `:=`(biodiv = rowSums(E_biodiv),
+               ghg = colSums(E_ghg),
+               luh = colSums(E_luh[c(3,4,13:16),]))]
+# included LUC categories:
+# print(as.vector(items_luh$Element[c(3,4,13:16)]))
+extension <- merge(E_fabio, conc_reg[, .(area_code, Country.Code = exiobase_code)], 
   by = "area_code", all.x = TRUE)
-E_fabio <- merge(E_fabio, conc_items[, .(comm_code, Product.Code = exiobase_code)], 
-                 by = "comm_code", all.x = TRUE)
-extension <- E_fabio
+extension <- merge(extension, conc_items[, .(comm_code, Product.Code = exiobase_code)], 
+  by = "comm_code", all.x = TRUE)
 extension[, 8:13] <- 0
 extension[area_code == code & item == product, 8:13] <- E_fabio[area_code == code & item == product, 8:13]
 extension <- extension[, .(landuse = sum(landuse, na.rm = TRUE), 
@@ -61,6 +78,17 @@ extension[is.na(extension)] <- 0
 extension <- as.data.table(extension[order(extension$Index), ])
 extensions <- extension[, .(biomass, landuse, blue, green, p_application, n_application)]
 ext_name = names(extensions)[1]
+fwrite(extension[biomass!=0], "output/cocoa_impacts_direct.csv")
+
+
+# compare environmental data for different countries -----------------------
+data <- E_fabio[item == product & biomass != 0, 
+                .(area_code, area, landuse, green_water = green, 
+                  p_application, n_application, biodiv, 
+                  ghg = ghg * 1000,  # convert into tonnes / tonne
+                  luh = luh * 1000,  # convert into tonnes / tonne
+                  biomass)]
+fwrite(data, "output/cocoa_impacts_direct_comparison.csv")
 
 
 # ---------------- calculate footprints --------------------------
@@ -125,7 +153,6 @@ if(title == "") ggmap <- ggmap + theme(plot.title = element_blank())
 
 ggsave(paste0("output/cocoa_map.png"), ggmap, width = 15, height = 10, units = "cm")
 fwrite(results, "output/cocoa_flows.csv")
-fwrite(extension[biomass!=0], "output/cocoa_impacts_direct.csv")
 
 
 # ---------------- calculate detailed footprints --------------------------
